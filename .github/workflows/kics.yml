@@ -1,0 +1,29 @@
+name: IaC Security Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  kics-job:
+    runs-on: ubuntu-latest
+    name: KICS Scanning
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
+      - name: Create Results Directory
+        run: mkdir -p results
+      - name: Run KICS Scan
+        uses: checkmarx/kics-action@latest
+        with:
+          path: .
+          output_path: results/
+      - name: Display KICS Results
+        run: |
+          cat results/results.json
+      - name: Results on GitHub Code Scanning Alerts
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: results/results.sarif
