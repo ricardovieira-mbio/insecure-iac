@@ -1,2 +1,2 @@
-# insecure-iac
+# Insecure IaC
 Insecure IaC Samples
