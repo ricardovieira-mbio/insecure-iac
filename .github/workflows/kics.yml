@@ -20,6 +20,8 @@ jobs:
         with:
           path: .
           output_path: results/
+          verbose: true
+          ignore_on_exit: all
       - name: Display KICS Results
         run: |
           cat results/results.json
