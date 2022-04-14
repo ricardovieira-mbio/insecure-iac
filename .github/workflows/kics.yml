@@ -16,7 +16,7 @@ jobs:
       - name: Create Results Directory
         run: mkdir -p results
       - name: Run KICS Scan
-        uses: checkmarx/kics-action@1.4
+        uses: checkmarx/kics-action@v1.4
         with:
           path: .
           output_path: results/
