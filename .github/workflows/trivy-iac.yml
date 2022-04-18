@@ -27,8 +27,8 @@ jobs:
           scan-type: 'config'
           security-checks: 'vuln,config'
           hide-progress: false
+          format: 'table'
           scan-ref: .
-          format: 'sarif'
           output: 'results.sarif'
       - name: Results on GitHub Code Scanning Alerts
         uses: github/codeql-action/upload-sarif@v1
