@@ -27,7 +27,7 @@ jobs:
           scan-type: 'config'
           security-checks: 'vuln,config'
           hide-progress: false
-          format: 'table'
+          format: 'sarif'
           scan-ref: .
           output: 'results.sarif'
       - name: Results on GitHub Code Scanning Alerts
