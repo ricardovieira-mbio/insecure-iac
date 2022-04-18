@@ -20,6 +20,7 @@ jobs:
         with:
           scan-type: 'config'
           format: 'sarif'
+          hide-progress: false
           output: 'results.sarif'
       - name: Results on GitHub Code Scanning Alerts
         uses: github/codeql-action/upload-sarif@v1
