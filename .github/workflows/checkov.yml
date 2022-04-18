@@ -18,7 +18,7 @@ jobs:
         id: checkov-scan
         uses: bridgecrewio/checkov-action@master
         with:
-          directory: .
+          directory: /terraform/aws/
           soft_fail: true
           quiet: true
           output_format: sarif
