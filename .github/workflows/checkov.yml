@@ -1,0 +1,21 @@
+name: IaC Security Scan - Checkov
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  kics-job:
+    runs-on: ubuntu-latest
+    name: Checkov Scanning
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
+      - name: Run Checkov Scan
+        id:
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: .
+          output_formats: "json,sarif"
