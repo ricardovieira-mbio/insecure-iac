@@ -18,7 +18,8 @@ jobs:
         id: trivy-scan
         uses: aquasecurity/trivy-action@master
         with:
-          scan-type: 'config'
+          scan-type: 'fs'
+          ignore-unfixed: true
           format: 'sarif'
           hide-progress: false
           output: 'results.sarif'
