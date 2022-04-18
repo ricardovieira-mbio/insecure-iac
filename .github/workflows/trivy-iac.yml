@@ -19,7 +19,7 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'config'
-          input: .
+          trace: true
           ignore-unfixed: true
           format: 'sarif'
           hide-progress: false
