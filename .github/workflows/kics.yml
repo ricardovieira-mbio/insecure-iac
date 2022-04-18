@@ -1,10 +1,11 @@
 name: IaC Security Scan - KICS
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
+  #push:
+  #  branches: [ main ]
+  #pull_request:
+  #  branches: [ main ]
 
 jobs:
   kics-job:
@@ -16,6 +17,7 @@ jobs:
       - name: Create Results Directory
         run: mkdir -p results
       - name: Run KICS Scan
+        id: kics-scan
         uses: checkmarx/kics-action@v1.4
         with:
           path: .
