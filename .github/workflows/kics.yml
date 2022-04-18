@@ -1,4 +1,4 @@
-name: IaC Security Scan
+name: IaC Security Scan - KICS
 
 on:
   push:
@@ -29,3 +29,4 @@ jobs:
         uses: github/codeql-action/upload-sarif@v1
         with:
           sarif_file: results/results.sarif
+          category: KICS
