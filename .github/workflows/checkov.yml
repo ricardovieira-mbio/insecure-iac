@@ -19,4 +19,6 @@ jobs:
         uses: bridgecrewio/checkov-action@master
         with:
           directory: .
-          output_formats: sarif
+          quiet: true
+          log_level: DEBUG
+          output_format: sarif
