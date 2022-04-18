@@ -1,10 +1,11 @@
 name: IaC Security Scan - Checkov
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
+  #push:
+  #  branches: [ main ]
+  #pull_request:
+  #  branches: [ main ]
 
 jobs:
   kics-job:
@@ -14,7 +15,7 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v3
       - name: Run Checkov Scan
-        id:
+        id: checkov-scan
         uses: bridgecrewio/checkov-action@master
         with:
           directory: .
