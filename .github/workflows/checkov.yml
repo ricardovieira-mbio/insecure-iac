@@ -7,10 +7,16 @@ on:
   #pull_request:
   #  branches: [ main ]
 
+permissions:
+  contents: read
+
 jobs:
-  kics-job:
+  checkov-job:
     runs-on: ubuntu-latest
     name: Checkov Scanning
+    permissions:
+      contents: read
+      security-events: write
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v3
