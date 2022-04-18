@@ -21,7 +21,8 @@ jobs:
       - name: Checkout Source Code
         uses: actions/checkout@v3
       - name: Run Snyk Scan
-        id: snyk-scan        
+        id: snyk-scan
+        continue-on-error: true
         uses: snyk/actions/iac@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
