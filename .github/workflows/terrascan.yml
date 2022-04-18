@@ -1,0 +1,35 @@
+name: IaC Security Scan - Terrascan
+
+on:
+  workflow_dispatch:
+  #push:
+  #  branches: [ main ]
+  #pull_request:
+  #  branches: [ main ]
+
+permissions:
+  contents: read
+  
+jobs:
+  terrascan-job:
+    runs-on: ubuntu-latest
+    name: Trivy Scanning
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v3
+      - name: Run Terrascan Scan
+        id: terrascan-scan
+        uses: accurics/terrascan-action@main
+        with:
+          iac_dir: .
+          iac_type: all
+          find_vulnerabilities: true
+          sarif_upload: true
+      - name: Results on GitHub Code Scanning Alerts
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: 'terrascan.sarif'
+          category: Terrascan
